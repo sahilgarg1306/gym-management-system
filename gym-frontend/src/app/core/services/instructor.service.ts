@@ -13,7 +13,7 @@ export class InstructorService {
 
   private http = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:5000/api/instructors';
+  private apiUrl = 'https://gym-management-system-yjjk.onrender.com/api/instructors';
 
   getInstructors(): Observable<Instructor[]> {
 

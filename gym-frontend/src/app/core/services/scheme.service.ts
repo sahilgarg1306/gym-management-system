@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SchemeService {
 
-  private apiUrl = 'http://localhost:5000/api/schemes';
+  private apiUrl = 'https://gym-management-system-yjjk.onrender.com/api/schemes';
 
   constructor(private http: HttpClient) {}
 

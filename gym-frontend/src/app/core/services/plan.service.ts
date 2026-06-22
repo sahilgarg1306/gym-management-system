@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PlanService {
 
-  private apiUrl = 'http://localhost:5000/api/plans';
+  private apiUrl = 'https://gym-management-system-yjjk.onrender.com/api/plans';
 
   constructor(private http: HttpClient) {}
 

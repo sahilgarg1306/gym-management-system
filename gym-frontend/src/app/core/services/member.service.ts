@@ -13,7 +13,7 @@ export class MemberService {
 
   private http = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:5000/api/members';
+  private apiUrl = 'https://gym-management-system-yjjk.onrender.com/api/members';
 
   getMembers(): Observable<Member[]> {
 

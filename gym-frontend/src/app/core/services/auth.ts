@@ -8,7 +8,7 @@ export class AuthService {
 
   private http = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:5000/api/auth';
+  private apiUrl = 'https://gym-management-system-yjjk.onrender.com/api/auth';
 
   login(data: any) {
     return this.http.post(
