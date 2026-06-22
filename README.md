@@ -10,6 +10,13 @@ A full-stack **Gym Management System** built with the **MEAN Stack** (MongoDB, E
 
 ---
 
+## 🌍 Live Demo
+
+- **Frontend (Live Website):** https://gym-management-system-sigma-virid.vercel.app
+- **Backend API:** https://gym-management-system-yjjk.onrender.com
+
+---
+
 ## 🚀 Key Features
 
 ### 👑 Admin Module
