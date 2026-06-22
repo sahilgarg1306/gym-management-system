@@ -1,0 +1,43 @@
+<div class="login-page">
+
+  <div class="login-card">
+
+    <div class="logo">
+      🏋️
+    </div>
+
+    <h1 class="title">
+      Gym Management System
+    </h1>
+
+    <p class="subtitle">
+      Manage memberships and renewals
+    </p>
+
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="login()">
+
+      <div class="form-group">
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Email Address">
+      </div>
+
+      <div class="form-group">
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password">
+      </div>
+
+      <button type="submit">
+        Login
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

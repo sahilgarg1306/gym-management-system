@@ -1,0 +1,105 @@
+<div class="layout">
+
+  <div class="sidebar">
+
+  <h2 class="logo">🏋️ Gym</h2>
+
+  <a routerLink="/admin/dashboard">
+    Dashboard
+  </a>
+
+  <a routerLink="/admin/instructors">
+    Instructors
+  </a>
+
+  <a routerLink="/admin/members">
+    Members
+  </a>
+
+  <a routerLink="/admin/plans">
+    Plans
+  </a>
+
+  <a routerLink="/admin/schemes">
+    Schemes
+  </a>
+
+  <a routerLink="/admin/payments">
+    Payments
+  </a>
+
+  <a routerLink="/admin/reports">
+    Reports
+  </a>
+
+</div>
+
+<div class="container">
+
+  <div class="header">
+    <h2>Membership Schemes</h2>
+    <button (click)="showForm = !showForm">+ Add Scheme</button>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-card" *ngIf="showForm">
+
+  <div class="form-group">
+    <label>Scheme Name</label>
+    <input type="text" placeholder="Enter scheme name" [(ngModel)]="newScheme.name">
+  </div>
+
+  <div class="form-group">
+    <label>Price (₹)</label>
+    <input type="number" placeholder="Enter price" [(ngModel)]="newScheme.price">
+  </div>
+
+  <div class="form-group">
+    <label>Duration (Months)</label>
+    <input type="number" placeholder="Enter duration" [(ngModel)]="newScheme.durationInMonths">
+  </div>
+
+  <div class="form-group">
+    <label>Features (comma separated)</label>
+    <input type="text" placeholder="e.g. Gym, Yoga, Cardio" [(ngModel)]="newScheme.features">
+  </div>
+
+  <div class="form-group">
+    <label>Status</label>
+    <select [(ngModel)]="newScheme.status">
+      <option>Active</option>
+      <option>Inactive</option>
+    </select>
+  </div>
+
+  <button (click)="addScheme()">Save Scheme</button>
+
+</div>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card" *ngFor="let s of schemes" [class.popular]="s.price >= 1999">
+
+      <div class="top">
+        <h3>{{ s.name }}</h3>
+        <span class="badge" [class.active]="s.status === 'Active'">
+          {{ s.status }}
+        </span>
+      </div>
+
+      <div class="price">
+        ₹{{ s.price }}
+        <small>/ {{ s.durationInMonths }} month(s)</small>
+      </div>
+
+      <ul>
+        <li *ngFor="let f of s.features">✔ {{ f }}</li>
+      </ul>
+
+      <button class="delete" (click)="deleteScheme(s._id)">Delete</button>
+
+    </div>
+
+  </div>
+
+</div>

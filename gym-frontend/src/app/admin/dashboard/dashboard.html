@@ -1,0 +1,83 @@
+<div class="layout">
+
+  <div class="sidebar">
+
+  <h2 class="logo">🏋️ Gym</h2>
+
+  <a routerLink="/admin/dashboard" routerLinkActive="active">
+    Dashboard
+  </a>
+
+  <a routerLink="/admin/instructors">
+    Instructors
+  </a>
+
+  <a routerLink="/admin/members">
+    Members
+  </a>
+
+  <a routerLink="/admin/plans">
+    Plans
+  </a>
+
+  <a routerLink="/admin/schemes">
+    Schemes
+  </a>
+
+  <a routerLink="/admin/payments">
+    Payments
+  </a>
+
+  <a routerLink="/admin/reports">
+    Reports
+  </a>
+
+</div>
+<div class="dashboard">
+  <app-navbar></app-navbar>
+
+  <div class="stats-grid">
+
+    <div class="card">
+      <h4>Total Members</h4>
+      <h2>{{ totalMembers }}</h2>
+    </div>
+
+    <div class="card">
+      <h4>Total Instructors</h4>
+      <h2>{{ totalInstructors }}</h2>
+    </div>
+
+    <div class="card revenue">
+      <h4>Total Revenue</h4>
+      <h2>₹{{ totalRevenue }}</h2>
+    </div>
+
+    <div class="card pending">
+      <h4>Pending Payments</h4>
+      <h2>{{ pendingPayments }}</h2>
+    </div>
+
+  </div>
+
+  <div class="charts-grid">
+
+    <div class="chart-card">
+
+      <h3>Revenue Per Month</h3>
+
+      <canvas id="revenueChart"></canvas>
+
+    </div>
+
+    <div class="chart-card">
+
+      <h3>Members By Plan</h3>
+
+      <canvas id="planChart"></canvas>
+
+    </div>
+
+  </div>
+
+</div>

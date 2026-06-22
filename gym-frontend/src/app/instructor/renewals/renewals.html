@@ -1,0 +1,103 @@
+<div class="layout">
+
+    <div class="sidebar">
+
+        <h2 class="logo">🏋️ Instructor</h2>
+
+        <a routerLink="/instructor/dashboard">
+            Dashboard
+        </a>
+
+        <a routerLink="/instructor/members">
+            Members
+        </a>
+
+        <a routerLink="/instructor/payments">
+            Payments
+        </a>
+
+        <a routerLink="/instructor/renewals">
+            Renewals
+        </a>
+
+    </div>
+
+    <div class="main-content">
+
+        <app-navbar></app-navbar>
+
+        <div class="container">
+
+            <div class="header">
+
+                <h1>Membership Renewals</h1>
+
+                <p>
+                    Members expiring within next 7 days
+                </p>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+
+                        <th>Plan</th>
+
+                        <th>Expiry Date</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let member of renewalMembers">
+
+                        <td>{{ member.name }}</td>
+
+                        <td>{{ member.plan }}</td>
+
+                        <td>
+                            {{ member.expiryDate | date:'dd/MM/yyyy' }}
+                        </td>
+
+                        <td>
+
+                            <span class="expiry-status" [class.expired]="isExpired(member.expiryDate)">
+
+                                {{ isExpired(member.expiryDate) ? 'Expired' : 'Expiring Soon' }}
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <button class="renew-btn" (click)="renewMembership(member._id!)">
+
+                                Renew
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

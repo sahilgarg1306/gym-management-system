@@ -1,0 +1,65 @@
+<div class="layout">
+
+  <div class="sidebar">
+
+  <h2 class="logo">🏋️ Gym</h2>
+
+  <a routerLink="/admin/dashboard">
+    Dashboard
+  </a>
+
+  <a routerLink="/admin/instructors">
+    Instructors
+  </a>
+
+  <a routerLink="/admin/members">
+    Members
+  </a>
+
+  <a routerLink="/admin/plans">
+    Plans
+  </a>
+
+  <a routerLink="/admin/schemes">
+    Schemes
+  </a>
+
+  <a routerLink="/admin/payments">
+    Payments
+  </a>
+
+  <a routerLink="/admin/reports">
+    Reports
+  </a>
+
+</div>
+
+<div class="container">
+
+  <h2>Reports Dashboard</h2>
+
+  <div class="grid">
+
+    <div class="card members">
+      <h3>Total Members</h3>
+      <p>{{ totalMembers }}</p>
+    </div>
+
+    <div class="card schemes">
+      <h3>Total Schemes</h3>
+      <p>{{ totalSchemes }}</p>
+    </div>
+
+    <div class="card plans">
+      <h3>Total Plans</h3>
+      <p>{{ totalPlans }}</p>
+    </div>
+
+    <div class="card revenue">
+      <h3>Total Revenue</h3>
+      <p>₹ {{ revenue }}</p>
+    </div>
+
+  </div>
+
+</div>

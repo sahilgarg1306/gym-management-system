@@ -1,0 +1,255 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+
+.sidebar {
+  width: 250px;
+  background: #111827;
+  color: #fff;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo {
+  padding: 0 24px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.sidebar a {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 14px 24px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+  border-left: 3px solid transparent;
+}
+
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-left-color: #3b82f6;
+}
+
+.sidebar a.active {
+  background: rgba(59, 130, 246, 0.15);
+  color: #fff;
+  border-left-color: #3b82f6;
+}
+
+.container {
+  flex: 1;
+  padding: 25px;
+  overflow-x: auto;
+  font-family: 'Arial', sans-serif;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.header button {
+  padding: 10px 15px;
+  background: #2f80ed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header button:hover {
+  background: #1c5fd4;
+}
+
+/* FORM CARD */
+.form-card {
+  margin: 15px 0;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #444;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2f80ed;
+  box-shadow: 0 0 5px rgba(47,128,237,0.3);
+}
+
+/* =========================
+   PRICING GRID (NEW UI)
+========================= */
+
+.pricing-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* CARD */
+.pricing-card {
+  flex: 1;
+  min-width: 260px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  position: relative;
+}
+
+.pricing-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Highlight Popular Plan */
+.pricing-card.popular {
+  border: 2px solid #2f80ed;
+  transform: none;
+}
+
+/* TOP SECTION */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* PRICE */
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 15px 0;
+  color: #2f80ed;
+}
+
+.price small {
+  font-size: 12px;
+  color: #777;
+  font-weight: 500;
+}
+
+/* FEATURES */
+.pricing-card ul {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.pricing-card ul li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* BUTTON */
+.btn {
+  width: 100%;
+  padding: 10px;
+  background: #2f80ed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #1c5fd4;
+}
+
+/* STATUS BADGE */
+.badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: #888;
+  color: white;
+}
+
+.badge.active {
+  background: #27ae60;
+}
+
+/* DELETE BUTTON */
+.delete {
+  width: 100%;
+  padding: 9px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete:hover {
+  background: #c0392b;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 992px) {
+  .pricing-grid {
+    flex-direction: column;
+  }
+
+  .pricing-card.popular {
+    transform: scale(1);
+  }
+}

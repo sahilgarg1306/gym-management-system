@@ -1,0 +1,108 @@
+<div class="layout">
+
+  <div class="sidebar">
+
+  <h2 class="logo">🏋️ Gym</h2>
+
+  <a routerLink="/admin/dashboard">
+    Dashboard
+  </a>
+
+  <a routerLink="/admin/instructors">
+    Instructors
+  </a>
+
+  <a routerLink="/admin/members">
+    Members
+  </a>
+
+  <a routerLink="/admin/plans">
+    Plans
+  </a>
+
+  <a routerLink="/admin/schemes">
+    Schemes
+  </a>
+
+  <a routerLink="/admin/payments">
+    Payments
+  </a>
+
+  <a routerLink="/admin/reports">
+    Reports
+  </a>
+
+</div>
+
+<div class="plans-container">
+
+  <div class="header">
+    <h2>Workout Plans</h2>
+    <button (click)="showForm = !showForm">
+      + Add Plan
+    </button>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-card" *ngIf="showForm">
+
+  <div class="form-group">
+    <label>Plan Name</label>
+    <input type="text" placeholder="Enter plan name" [(ngModel)]="newPlan.name">
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea placeholder="Enter plan description" [(ngModel)]="newPlan.description"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Duration (Weeks)</label>
+    <input type="number" placeholder="Enter duration in weeks" [(ngModel)]="newPlan.durationInWeeks">
+  </div>
+
+  <div class="form-group">
+    <label>Difficulty Level</label>
+    <select [(ngModel)]="newPlan.difficulty">
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Advanced</option>
+    </select>
+  </div>
+
+  <button (click)="addPlan()">Save Plan</button>
+
+</div>
+
+  <!-- TABLE -->
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Duration</th>
+          <th>Difficulty</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let plan of plans">
+          <td>{{ plan.name }}</td>
+          <td>{{ plan.durationInWeeks }} weeks</td>
+          <td>
+            <span class="badge" [class]="plan.difficulty.toLowerCase()">
+              {{ plan.difficulty }}
+            </span>
+          </td>
+          <td>
+            <button class="delete" (click)="deletePlan(plan._id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

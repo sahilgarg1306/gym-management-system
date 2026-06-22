@@ -1,0 +1,282 @@
+<div class="layout">
+
+  <div class="sidebar">
+
+  <h2 class="logo">🏋️ Gym</h2>
+
+  <a routerLink="/admin/dashboard">
+    Dashboard
+  </a>
+
+  <a routerLink="/admin/instructors">
+    Instructors
+  </a>
+
+  <a routerLink="/admin/members">
+    Members
+  </a>
+
+  <a routerLink="/admin/plans">
+    Plans
+  </a>
+
+  <a routerLink="/admin/schemes">
+    Schemes
+  </a>
+
+  <a routerLink="/admin/payments">
+    Payments
+  </a>
+
+  <a routerLink="/admin/reports">
+    Reports
+  </a>
+
+</div>
+
+<div class="members-container">
+
+    <div class="header">
+
+        <h1>Members Management</h1>
+
+        <button class="add-btn" (click)="openForm()">
+
+            + Add Member
+
+        </button>
+
+    </div>
+
+    @if(showForm){
+
+    <div class="member-form">
+
+        <h2>
+
+            @if(isEditMode){
+            Edit Member
+            }
+            @else{
+            Add New Member
+            }
+
+        </h2>
+
+        <form [formGroup]="memberForm" (ngSubmit)="addMember()">
+
+            <div class="form-group">
+
+                <label>Full Name</label>
+
+                <input type="text" formControlName="name">
+
+                @if(memberForm.get('name')?.invalid &&
+                memberForm.get('name')?.touched){
+
+                <small class="error">
+                    Name is required
+                </small>
+
+                }
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Email Address</label>
+
+                <input type="email" formControlName="email">
+
+                @if(memberForm.get('email')?.invalid &&
+                memberForm.get('email')?.touched){
+
+                <small class="error">
+                    Enter a valid email address
+                </small>
+
+                }
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Phone Number</label>
+
+                <input type="text" formControlName="phone">
+
+                @if(memberForm.get('phone')?.invalid &&
+                memberForm.get('phone')?.touched){
+
+                <small class="error">
+                    Phone number must be at least 10 digits
+                </small>
+
+                }
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Age</label>
+
+                <input type="number" formControlName="age">
+
+                @if(memberForm.get('age')?.invalid &&
+                memberForm.get('age')?.touched){
+
+                <small class="error">
+                    Age is required
+                </small>
+
+                }
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Gender</label>
+
+                <select formControlName="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Address</label>
+
+                <input type="text" formControlName="address">
+
+                @if(memberForm.get('address')?.invalid &&
+                memberForm.get('address')?.touched){
+
+                <small class="error">
+                    Address is required
+                </small>
+
+                }
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Joining Date</label>
+
+                <input type="date" formControlName="joiningDate">
+
+                @if(memberForm.get('joiningDate')?.invalid &&
+                memberForm.get('joiningDate')?.touched){
+
+                <small class="error">
+                    Joining date is required
+                </small>
+
+                }
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Plan</label>
+
+                <select formControlName="plan">
+                    <option value="Basic">Basic</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Gold">Gold</option>
+                </select>
+
+            </div>
+
+            <div class="button-group">
+
+                <button type="submit" class="save-btn">
+
+                    @if(isEditMode){
+                    Update Member
+                    }
+                    @else{
+                    Save Member
+                    }
+
+                </button>
+
+                <button type="button" class="cancel-btn" (click)="closeForm()">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    }
+
+    <div class="search-box">
+
+        <input
+  type="text"
+  placeholder="Search Member"
+  [(ngModel)]="searchText"
+  (input)="searchMembers()">
+
+    </div>
+    <!-- <p>Members: {{ members.length }}</p>
+<p>Filtered: {{ filteredMembers.length }}</p> -->
+    <table>
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Plan</th>
+                <th>Status</th>
+                <th>Expiry Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @for(member of filteredMembers; track member._id){
+
+            <tr>
+
+                <td>{{ member.name }}</td>
+
+                <td>{{ member.phone }}</td>
+
+                <td>{{ member.plan }}</td>
+
+                <td>{{ member.status }}</td>
+
+                <td> {{ member.expiryDate | date:'dd/MM/yyyy' }} </td>
+                <td>
+                    <button class="renew-btn" (click)="renewMembership(member._id!)">
+                    Renew
+                    </button>
+                    
+                    <button class="edit-btn" (click)="editMember($index)">
+                        Edit
+                    </button>
+
+                    <button class="delete-btn" (click)="deleteMember($index)">
+                        Delete
+                    </button>
+
+                </td>
+
+            </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

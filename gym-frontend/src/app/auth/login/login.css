@@ -1,0 +1,140 @@
+/* ─── Reset ─────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+/* ─── Page background ────────────────────────────────────── */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0a0f1e;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient orange glow — bottom-left & top-right */
+.login-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(255,80,0,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 80% 10%, rgba(255,140,0,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* Subtle grid overlay */
+.login-page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ─── Card ───────────────────────────────────────────────── */
+.login-card {
+  width: 420px;
+  background: rgba(15, 20, 35, 0.92);
+  border: 0.5px solid rgba(255, 100, 0, 0.3);
+  border-top: 1.5px solid rgba(255, 100, 0, 0.6);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Logo ───────────────────────────────────────────────── */
+.logo {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 4px;
+  /* orange glow behind the emoji */
+  filter: drop-shadow(0 0 16px rgba(255, 120, 0, 0.5));
+}
+
+/* ─── Title & subtitle ───────────────────────────────────── */
+.title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f1f5f9;
+  letter-spacing: -0.3px;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+  margin: 0 0 28px;
+}
+
+/* Thin orange divider under subtitle */
+.subtitle::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6200, #ff9000);
+  border-radius: 2px;
+  margin: 16px auto 0;
+}
+
+/* ─── Form groups ────────────────────────────────────────── */
+.form-group {
+  margin-bottom: 16px;
+}
+
+/* ─── Inputs ─────────────────────────────────────────────── */
+input {
+  width: 100%;
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #f1f5f9;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+input::placeholder {
+  color: #334155;
+}
+
+input:focus {
+  outline: none;
+  border-color: rgba(255, 98, 0, 0.7);
+  background: rgba(255, 98, 0, 0.06);
+}
+
+/* ─── Submit button ──────────────────────────────────────── */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 6px;
+  background: linear-gradient(135deg, #ff6200, #ff9000);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  transform: scale(0.99);
+}

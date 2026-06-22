@@ -1,0 +1,167 @@
+<div class="layout">
+
+  <div class="sidebar">
+
+  <h2 class="logo">🏋️ Gym</h2>
+
+  <a routerLink="/admin/dashboard">
+    Dashboard
+  </a>
+
+  <a routerLink="/admin/instructors">
+    Instructors
+  </a>
+
+  <a routerLink="/admin/members">
+    Members
+  </a>
+
+  <a routerLink="/admin/plans">
+    Plans
+  </a>
+
+  <a routerLink="/admin/schemes">
+    Schemes
+  </a>
+
+  <a routerLink="/admin/payments">
+    Payments
+  </a>
+
+  <a routerLink="/admin/reports">
+    Reports
+  </a>
+
+</div>
+
+<div class="payment-container">
+
+  <div class="page-header">
+    <div>
+      <h2>Payment Management</h2>
+      <p>Track member subscriptions and payments</p>
+    </div>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h4>Total Payments</h4>
+      <span>{{ payments.length }}</span>
+    </div>
+
+    <div class="stat-card revenue">
+      <h4>Total Revenue</h4>
+      <span>
+        ₹{{ payments
+          .filter(p => p.status === 'Paid')
+          .reduce((sum, p) => sum + p.amount, 0) }}
+      </span>
+    </div>
+
+    <div class="stat-card paid">
+      <h4>Paid</h4>
+      <span>
+        {{ payments.filter(p => p.status === 'Paid').length }}
+      </span>
+    </div>
+
+    <div class="stat-card pending">
+      <h4>Pending</h4>
+      <span>
+        {{ payments.filter(p => p.status === 'Pending').length }}
+      </span>
+    </div>
+
+  </div>
+
+  <!-- Table Card -->
+  <div class="table-card">
+
+    <div class="table-header">
+      <h3>Payment Records</h3>
+    </div>
+
+    <table *ngIf="payments.length > 0">
+
+      <thead>
+        <tr>
+          <th>Member</th>
+          <th>Plan</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let p of payments">
+
+          <td>
+            <div class="member-cell">
+              <div class="avatar">
+                {{ p.memberName.charAt(0) }}
+              </div>
+
+              <span>{{ p.memberName }}</span>
+            </div>
+          </td>
+
+          <td>
+            <span class="plan-badge">
+              {{ p.plan }}
+            </span>
+          </td>
+
+          <td class="amount">
+            ₹{{ p.amount }}
+          </td>
+
+          <td>
+            <span
+              class="status-badge"
+              [class.paid]="p.status === 'Paid'"
+              [class.pending]="p.status === 'Pending'">
+
+              {{ p.status }}
+
+            </span>
+          </td>
+
+          <td>
+
+            <button
+              class="pay-btn"
+              *ngIf="p.status === 'Pending'"
+              (click)="markPaid(p._id)">
+
+              Mark Paid
+
+            </button>
+
+            <span
+              *ngIf="p.status === 'Paid'"
+              class="completed">
+
+              ✓ Completed
+
+            </span>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <div class="empty-state" *ngIf="payments.length === 0">
+      <h3>No Payments Found</h3>
+      <p>Payments will appear here when members are added.</p>
+    </div>
+
+  </div>
+
+</div>

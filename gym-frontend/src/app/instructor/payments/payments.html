@@ -1,0 +1,95 @@
+<div class="layout">
+
+  <div class="sidebar">
+
+    <h2 class="logo">🏋️ Instructor</h2>
+
+    <a routerLink="/instructor/dashboard">
+      Dashboard
+    </a>
+
+    <a routerLink="/instructor/members">
+      Members
+    </a>
+
+    <a routerLink="/instructor/payments">
+      Payments
+    </a>
+
+    <a routerLink="/instructor/renewals">
+      Renewals
+    </a>
+
+  </div>
+
+  <div class="main-content">
+
+    <div class="container">
+
+      <div class="header">
+
+        <h1>Payment Management</h1>
+
+      </div>
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          placeholder="Search Member"
+          [(ngModel)]="searchText"
+          (input)="searchPayments()">
+
+      </div>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Member</th>
+
+            <th>Plan</th>
+
+            <th>Amount</th>
+
+            <th>Status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let payment of filteredPayments">
+
+            <td>{{ payment.memberName }}</td>
+
+            <td>{{ payment.plan }}</td>
+
+            <td>₹{{ payment.amount }}</td>
+
+            <td>
+
+              <span
+                class="status"
+                [class.paid]="payment.status === 'Paid'">
+
+                {{ payment.status }}
+
+              </span>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

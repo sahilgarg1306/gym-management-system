@@ -1,0 +1,139 @@
+<div class="layout">
+
+  <div class="sidebar">
+
+    <h2 class="logo">🏋️ Instructor</h2>
+
+    <a routerLink="/instructor/dashboard" routerLinkActive="active">
+      Dashboard
+    </a>
+
+    <a routerLink="/instructor/members">
+      Members
+    </a>
+
+    <a routerLink="/instructor/payments">
+      Payments
+    </a>
+
+    <a routerLink="/instructor/renewals">
+      Renewals
+    </a>
+
+  </div>
+
+  <div class="main-content">
+
+    <app-navbar></app-navbar>
+
+    <div class="dashboard-container">
+
+      <h1>Instructor Dashboard</h1>
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <h4>Total Members</h4>
+          <h2>{{ totalMembers }}</h2>
+        </div>
+
+        <div class="stat-card pending">
+          <h4>Pending Payments</h4>
+          <h2>{{ pendingPayments }}</h2>
+        </div>
+
+        <div class="stat-card renewal">
+          <h4>Renewals Due</h4>
+          <h2>{{ renewalsDue }}</h2>
+        </div>
+
+        <div class="stat-card today">
+          <h4>Today's Registrations</h4>
+          <h2>{{ todayRegistrations }}</h2>
+        </div>
+
+      </div>
+
+      <div class="tables-grid">
+
+        <div class="table-card">
+
+          <h3>Recent Members</h3>
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Plan</th>
+                <th>Expiry</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr *ngFor="let member of recentMembers">
+
+                <td>{{ member.name }}</td>
+
+                <td>{{ member.plan }}</td>
+
+                <td>
+                  {{ member.expiryDate | date:'dd/MM/yyyy' }}
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <div class="table-card">
+
+          <h3>Pending Payments</h3>
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Member</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr *ngFor="let payment of pendingPaymentList">
+
+                <td>{{ payment.memberName }}</td>
+
+                <td>₹{{ payment.amount }}</td>
+
+                <td>
+
+                  <span class="status pending-status">
+
+                    {{ payment.status }}
+
+                  </span>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
