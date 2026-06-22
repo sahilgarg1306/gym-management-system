@@ -15,6 +15,7 @@ A full-stack **Gym Management System** built with the **MEAN Stack** (MongoDB, E
 - **Frontend (Live Website):** https://gym-management-system-sigma-virid.vercel.app
 - **Backend API:** https://gym-management-system-yjjk.onrender.com
 
+> ⚠️ Note: Backend is hosted on Render and may take 30-50 seconds to wake up on the first request after inactivity.
 ---
 
 ## 🚀 Key Features

@@ -12,6 +12,22 @@ const paymentRoutes = require('./routes/payment.routes');
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({
+    message: '🏋️ Gym Management System API is running!',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      members: '/api/members',
+      instructors: '/api/instructors',
+      plans: '/api/plans',
+      schemes: '/api/schemes',
+      payments: '/api/payments',
+      reports: '/api/reports'
+    }
+  });
+});
+
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/members', memberRoutes);
 app.use('/api/instructors', instructorRoutes);
