@@ -18,6 +18,18 @@ A full-stack **Gym Management System** built with the **MEAN Stack** (MongoDB, E
 > ⚠️ Note: Backend is hosted on Render and may take 30-50 seconds to wake up on the first request after inactivity.
 ---
 
+## 🔐 Demo Credentials
+
+**Admin Login**
+- Email: admin@gmail.com
+- Password: admin123
+
+**Instructor Login**
+- Email: instructor@gmail.com
+- Password: instructor1234
+
+---
+
 ## 🚀 Key Features
 
 ### 👑 Admin Module
